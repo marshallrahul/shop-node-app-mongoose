@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap');
+
+.grid {
+  padding: 4rem 10rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.card {
+  height: 52rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0 2rem 4rem;
+  position: relative;
+}
+
+span {
+  position: absolute;
+  font-size: 1.6rem;
+  top: -2rem;
+  right: -2.2rem;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.card__image {
+  height: 60%;
+}
+
+.card__title {
+  font-size: 2rem;
+  padding: 1.5rem 0;
+  word-wrap: break-word;
+}
+
+.card__price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00000094;
+}
+
+.card__description {
+  font-size: 1.7rem;
+}
+
+.card__btn,
+.card__title,
+.card__price,
+.card__description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__details {
+  padding: 2rem 0 3rem;
+}
+
+.card__btn {
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-small {
+  font-size: 1.4rem;
+  width: 9rem;
+  height: 3rem;
+}
+
+.detail-page {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  height: calc(100vh - 5.5rem);
+}
+
+.prod {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.prod__details {
+  height: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.prod__title {
+  font-size: 10rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.prod__description {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.prod__price {
+  font-size: 3rem;
+}
+
+.bg-image {
+  height: 50rem;
+  box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+}
+
+.total {
+  font-size: 2rem;
+}

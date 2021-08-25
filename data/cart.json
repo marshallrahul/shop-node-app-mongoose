@@ -1,0 +1,18 @@
+[
+  {
+    "id": "6e452d93-14c4-4a15-bce6-dc2a1b9651f2",
+    "title": "Smoking",
+    "imageUrl": "https://images.unsplash.com/photo-1622023346734-bf5c9bf22c90?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfFM0TUtMQXNCQjc0fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "price": "9.99",
+    "description": "Smoking",
+    "quantity": "1"
+  },
+  {
+    "id": "e90ff825-83d5-4cbf-8ad3-266bb51b8f29",
+    "title": "Hijab",
+    "imageUrl": "https://images.unsplash.com/photo-1611872687047-5e5cabc8e1bd?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8dG93SlpGc2twR2d8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "price": "31.62",
+    "description": "Good face",
+    "quantity": 3
+  }
+]

@@ -1,0 +1,40 @@
+<%- include ('../includes/head.ejs') -%>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+    <%- include ('../includes/navigation.ejs') -%>
+
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                <% for (let product of prods) { %>
+                    <div class="card">
+                        <h2 class="card__title"><%= product.title %></h2>
+                        <img src="/<%= product.imageUrl %>" alt="<%= product.imageUrl %>" class="card__image">
+                        <div class="card__details">
+                            <div class="card__price">$<%= product.price %></div>
+                            <div class="card__description">
+                                <% if (product.description.length > 20) { %>
+                                    <%= product.description.substr(0, 15) %> ...
+                                <% } else { %>
+                                    <%= product.description %>
+                                <% } %>
+                            </div>
+                            <div class="card__btn">
+                                <form action="/admin/delete" method="POST">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button class="btn-link">Delete</button>
+                                    <input type="hidden" name="productId" value="<%= product._id %>">
+                                </form>
+                                <a href="/admin/edit-product/<%= product._id %>?edit=<%= product._id %>" class="btn-link" type="submit">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>     
+        <% } else {%>
+            <h1>No Products!!!</h1>
+        <% } %>
+    </main>
+</body>
+</html>

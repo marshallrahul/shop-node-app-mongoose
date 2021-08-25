@@ -1,0 +1,81 @@
+<%- include ('../includes/head.ejs') -%>
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include ('../includes/navigation.ejs') -%>
+
+    <main>
+        <button href="/checkout" class="btn" id="rzp-button1">Pay</button>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            var options = {
+                "key": "rzp_test_79rZVwxkbhYe9W", 
+                "amount": "<%= order.amount %>",
+                "currency": "INR",
+                "name": "Acme Corp",
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": "<%= order.id %>",
+                "callback_url": "/checkout/success", 
+                "redirect": true,
+                "prefill": {
+                    "name": "Test User",
+                    "email": "test.user@example.com",
+                    "contact": "9999999999"
+                },
+                "handler": function (response){
+                    alert(response.razorpay_payment_id);
+                    alert(response.razorpay_order_id);
+                    alert(response.razorpay_signature)
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function (response){
+                    alert(response.error.code);
+                    alert(response.error.description);
+                    alert(response.error.source);
+                    alert(response.error.step);
+                    alert(response.error.reason);
+                    alert(response.error.metadata.order_id);
+                    alert(response.error.metadata.payment_id);
+            });
+            document.getElementById('rzp-button1').onclick = function(e){
+                rzp1.open();
+                e.preventDefault();
+            }
+            </script>
+        <% if (prods.length > 0) { %>
+        <div class="grid">
+            <% for (let product of prods) { %>
+            <div class="card">
+                <span>&#10007;<%= product.quantity %></span>
+                <h2 class="card__title"><%= product.productData.title %></h2>
+                <img src="<%= product.productData.imageUrl %>" alt="<%= product.productData._id %>" class="card__image">
+                <div class="card__details">
+                    <div class="card__price">
+                        $<%= product.productData.price %>
+                    </div>
+                    <div class="card__description"><%= product.productData.description %></div>
+                    <div class="card__btn">
+                        <form action="/delete" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button class="btn btn-small" type="submit">Remove</button>
+                            <input type="hidden" name="cartId" value="<%= product.productData._id %>">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </main>
+</body>
+
+</html>

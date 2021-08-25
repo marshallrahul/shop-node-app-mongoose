@@ -1,0 +1,62 @@
+<%- include ('../includes/head.ejs') -%>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    <%- include ('../includes/navigation.ejs') -%>
+    <main>
+        <div class="<% if (errorMessage) { %>err-message <% } else { %> '' <% } %>">
+            <%= errorMessage %>
+        </div>
+        <form action="/admin/<% if (editingMode) { %>edit-product<% } else { %>add-product<% } %>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="productId" value="<%= prod._id %>">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input 
+                    type="text" 
+                    name="title" 
+                    id="title" 
+                    value="<% if (editingMode) { %><%= prod.title %><% } %><% if (validationErrors) { %><%= oldInputs.title %><% } %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input 
+                    type="file" 
+                    name="image" 
+                    id="imageUrl" 
+                    value=""
+                >
+            </div>
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input 
+                    type="number" 
+                    name="price" 
+                    id="price" 
+                    step=".01" 
+                    value="<% if (editingMode) { %><%= prod.price %><% } %><% if (validationErrors) { %><%= oldInputs.price %><% } %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea 
+                    name="description" 
+                    id="description" 
+                    cols="30" 
+                    rows="10"
+                >
+                    <% if (editingMode) { %><%= prod.description %><% } %><% if (validationErrors) { %><%= oldInputs.description %><% } %>
+                </textarea>
+            </div>
+            <button class="btn" type="submit">
+                <% if (editingMode) { %>
+                    Updata Product
+                <% } else { %>
+                    Add Product
+                <% } %>
+            </button>
+        </form>
+    </main>
+</body>
+</html>

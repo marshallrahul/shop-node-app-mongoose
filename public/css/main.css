@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn {
+  background-color: transparent;
+  outline: none;
+  width: 12rem;
+  height: 3.2rem;
+}
+
+.btn,
+.btn-link {
+  font-size: 1.6rem;
+  color: #00695c;
+  border: 1px solid #00695c;
+  border-radius: 2px;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.btn-link {
+  width: 8rem;
+  height: 3rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover,
+.btn-link:hover {
+  color: #fff;
+  background-color: #00695c;
+  cursor: pointer;
+}
+
+.user-auth a:last-child {
+  padding-left: 3rem;
+}
+
+.err-message {
+  font-size: 1.6rem;
+  text-align: center;
+  color: red;
+  background-color: rgb(255, 123, 123);
+  border: 1px solid rgb(253, 63, 63);
+  padding: 1.2rem 0;
+  width: 25vw;
+  margin: 0 auto;
+  margin-top: 1.4rem;
+}
+
+.pagination {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.pagination a {
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 1rem;
+  color: #00695c;
+  background-color: #fff;
+  border: 1px solid #00695c;
+}
